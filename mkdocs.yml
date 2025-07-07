@@ -1,0 +1,88 @@
+site_name: "FinMAS: Financial Analysis using Multi-Agent Systems"
+site_url: https://ivarurdalen.github.io/finmas
+docs_dir: docs/
+repo_url: https://github.com/ivarurdalen/finmas
+edit_uri: edit/main/docs/
+
+nav:
+  - Home: index.md
+  - Tutorial:
+      - tutorial/index.md
+      - News Analysis: tutorial/news.md
+  - Examples:
+      - examples_index.md
+      - News:
+          - TSLA llama3-8b: examples/news/TSLA_llama3-8b_2024-11-18.md
+          - TSLA gpt-4o-mini: examples/news/TSLA_gpt-4o-mini_2024-11-18.md
+          - NVDA llama3-8b: examples/news/NVDA_llama3-8b_2024-11-18.md
+          - NVDA gpt-4o-mini: examples/news/NVDA_gpt-4o-mini_2024-11-18.md
+      - SEC MD&A and Risk Factors:
+          - META gpt-4o: examples/sec_mda_risk_factors/META_gpt-4o_2024-11-18.md
+          - NVDA llama3-8b: examples/sec_mda_risk_factors/NVDA_llama3-8b_2024-11-18.md
+          - NVDA gpt-4o: examples/sec_mda_risk_factors/NVDA_gpt-4o_2024-11-18.md
+      - Market Data:
+          - META gpt-4o: examples/market_data/META_gpt-4o_2024-11-18.md
+          - META gpt-4o-mini: examples/market_data/META_gpt-4o-mini_2024-11-18.md
+          - META llama3-8b: examples/market_data/META_llama3-8b_2024-11-18.md
+      - Combined:
+          - NVDA gpt-4o: examples/combined/NVDA_gpt-4o_2024-11-18.md
+          - NVDA gpt-4o-mini: examples/combined/NVDA_gpt-4o-mini_2024-11-18.md
+          - APP gpt-4o: examples/combined/APP_gpt-4o_2025-01-21.md
+  - Crews:
+      - crews/index.md
+      - Market Data: crews/market_data.md
+      - SEC MD&A and Risk Factors: crews/sec.md
+      - News: crews/news.md
+      - Combined: crews/combined.md
+  - Configuration: configuration.md
+  - Components:
+      - components/index.md
+      - Crews: components/crews.md
+      - Query Engine: components/query_engine.md
+      - LLM Models: components/llm_models.md
+      - Embedding Models: components/embedding_models.md
+      - Packages: components/packages.md
+  - Data:
+      - data/index.md
+      - SEC Filings:
+          - data/sec/index.md
+          - Parsing: data/sec/parsing.md
+      - News: data/news.md
+      - Fundamentals: data/fundamentals.md
+  - Development: development.md
+
+theme:
+  name: material
+  features:
+    - navigation.instant
+    - navigation.tabs
+    - navigation.tabs.sticky
+    - navigation.sections
+    - navigation.indexes
+    - navigation.top
+    - search.highlight
+    - search.suggest
+    - content.action.edit
+    - content.action.view
+
+extra_css:
+  - https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css
+  - styles/extra.css
+
+markdown_extensions:
+  - pymdownx.superfences:
+      # make exceptions to highlighting of code:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:mermaid2.fence_mermaid_custom
+  - toc:
+      permalink: "#"
+
+plugins:
+  - search
+  - mermaid2
+  - macros:
+      include_dir: docs/include
+  - markdown-exec:
+      ansi: required

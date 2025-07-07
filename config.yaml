@@ -1,0 +1,100 @@
+---
+defaults:
+  llm_provider: groq
+  llm_providers:
+    - openai
+    - groq
+  # Groq models: https://console.groq.com/docs/models
+  # Groq rate limits: https://console.groq.com/docs/rate-limits
+  groq_llm_model: llama-3.3-70b-versatile
+  # OpenAI models: https://platform.openai.com/docs/models/overview
+  # OpenAI pricing: https://platform.openai.com/docs/pricing
+  openai_llm_model: gpt-4o-mini
+  openai_models:
+    - gpt-4o-mini
+    - gpt-4o
+  llm_temperature: 0.0
+  llm_max_tokens: 1024
+  hf_embedding_model: BAAI/bge-small-en-v1.5
+  hf_embedding_models:
+    - BAAI/bge-small-en-v1.5
+    - sentence-transformers/all-MiniLM-L6-v2
+    - sentence-transformers/all-mpnet-base-v2
+    - nomic-ai/nomic-embed-text-v1.5
+    - BAAI/bge-large-en-v1.5
+    - FinLang/investopedia_embedding
+  openai_embedding_model: text-embedding-3-small
+  openai_embedding_models:
+    - text-embedding-3-small
+    - text-embedding-3-large
+    - text-embedding-ada-002
+  similarity_top_k: 3
+  news_source: Benzinga
+  news_sources:
+    - Benzinga
+  fundamental_freq: Annual
+  news_start_date: 2025-06-23
+  news_end_date: 2025-07-04
+  price_end_date: 2025-07-04
+  news_max_num_symbols: 5 # Maximum number of symbols to be used in a news article
+  tickerid: META
+  tickers_market_cap_exclude:
+    - Micro
+    - Nano
+  only_sp500_tickers: False
+  crew: sec_mda_risk_factors
+  crews:
+    News: news
+    SEC: sec
+    SEC MD&A and Risk Factors: sec_mda_risk_factors
+    Market Data: market_data
+    Combined: combined
+  crewai:
+    max_iterations: 10
+    max_requests_per_minute: 30
+    async_execution: True
+  technical_analysis_periods: 8
+  fundamental_analysis_quarters: 8
+  embedding_models_dir: embedding_models
+  crew_output_dir: output
+  crew_logs_dir: logs
+  filings_dir: filings
+  logs_dir: logs
+  data_dir: data
+  vector_store_index_dir: vector_store_index
+  fundamentals_dir: data/fundamentals
+  sec_filing_types_selected:
+    - 10-K
+  sec_filing_types:
+    - 10-Q
+    - 10-K
+  sec_filing_sections:
+    - mda
+    - risk_factors
+  llm_model_cost:
+    gpt-4o-mini:
+      input_cost: 1.5e-7
+      output_cost: 6.0e-7
+    gpt-4o:
+      input_cost: 2.5e-6
+      output_cost: 1.0e-5
+  embedding_model_cost:
+    text-embedding-3-small: 2.0e-8
+    text-embedding-3-large: 1.3e-7
+    text-embedding-ada-002: 1.0e-7
+  fundamentals_tool:
+    include_qoq: False
+  include_fundamental_data: True
+  include_news: True
+  save_fundamental_data: True
+  save_news_data: True
+  save_text_content: True # Save text content of filings or news
+  text_content_dir: output/text_content
+  query_data_source: section:mda
+  query_data_sources:
+    News: news
+    SEC MDA: section:mda
+    SEC Risk Factors: section:risk_factors
+  default_query: >
+    "Extract the most important statements from the Management's Discussion "
+    "and Analysis section of the provided 10-K filing."

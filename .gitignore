@@ -1,0 +1,63 @@
+# Project related
+
+/data/
+experiments/
+
+# Prevent filenames with whitespace to be added
+**\ **
+uv.lock
+.DS_Store
+
+# Embedding model
+embeddings/
+embedding_models/
+
+# Vector Store Index storage
+storage/
+sec_storage/
+sec_filing_index/
+vector_store_index/
+*.bin
+*.sqlite3
+filings_index/
+
+# Crew Logs
+logs/
+
+.finmas_cache/
+
+# Data
+filings/
+*.htm
+
+# Docs
+site/
+
+output/text_content
+output/sec
+output/market_data
+output/combined
+output/news
+output/sec_mda_risk_factors
+
+### Notebooks ###
+
+.ipynb_checkpoints
+*/.ipynb_checkpoints/*
+
+notebooks/drafts/
+
+
+### Python ###
+# Byte-compiled / optimized / DLL files
+__pycache__/
+
+# Environments
+.env
+.venv
+
+# mypy
+.mypy_cache/
+
+# ruff
+.ruff_cache/
