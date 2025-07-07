@@ -17,7 +17,7 @@ Illustration of the SEC Filing Analysis crew:
 from pathlib import Path
 from finmas.crews.utils import get_yaml_config_as_markdown
 
-config_path = Path.cwd() / "finmas/crews/sec_mda_risk_factors/config"
+config_path = Path.cwd() / "src/finmas/crews/sec_mda_risk_factors/config"
 print("## Agents")
 print(get_yaml_config_as_markdown(config_path, "agents"))
 print("## Tasks")

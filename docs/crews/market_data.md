@@ -15,7 +15,7 @@ Illustration of the Market Data Analysis crew:
 from pathlib import Path
 from finmas.crews.utils import get_yaml_config_as_markdown
 
-config_path = Path.cwd() / "finmas/crews/market_data/config"
+config_path = Path.cwd() / "src/finmas/crews/market_data/config"
 print("## Agents")
 print(get_yaml_config_as_markdown(config_path, "agents"))
 print("## Tasks")
