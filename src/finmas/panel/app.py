@@ -345,7 +345,7 @@ class FinMAS(pn.viewable.Viewer):
         return pn.pane.Alert(message, alert_type=alert_type)
 
     def fetch_technical_analysis_data(self, event) -> None:
-        """Fetch price data from Yahoo Finance."""
+        """Fetch price data from Tiingo."""
         start = (self.price_end_date.value - pd.DateOffset(years=5)).date()
         df = get_technical_indicators(
             ticker=self.ticker_select.value, start=start, end=self.price_end_date.value

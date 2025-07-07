@@ -141,7 +141,7 @@ def get_ticker_essentials(ticker: str) -> pd.DataFrame:
     """
     Gets essential data for a given ticker.
 
-    Price data is fetched from Yahoo Finance and fundamental data is fetched from Alpha Vantage.
+    Price data is fetched from Tiingo and fundamental data is fetched from Alpha Vantage.
     Income statement and Balance sheet data are used to calculate additional metrics.
 
     Args:

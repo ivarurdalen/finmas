@@ -11,7 +11,7 @@ The main architecture of the app consists of 4 main components:
   Multi-agent systems (crews) that either focus on a specific data source or multiple data sources.
   Tools that the Agents use to perform their tasks are defined here.
 - **data:** This component focuses on fetching and processing data from sources such as SEC filings, Benzinga News,
-  Alpha Vantage API, and Yahoo Finance.
+  Alpha Vantage API, and Tiingo.
 - **utils:** The objective of this component is to gather helper functions that are used across the
   different components in a common place.
 
