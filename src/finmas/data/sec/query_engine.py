@@ -1,7 +1,7 @@
 import datetime as dt
 import time
 from pathlib import Path
-from typing import TYPE_CHECKING
+from typing import Any
 
 from edgar import Filing, set_identity
 
@@ -12,9 +12,6 @@ from finmas.data.sec.sec_parser import SECTION_FILENAME_MAP, SECFilingParser
 from finmas.data.token_counting import token_counter
 from finmas.logger import get_logger
 from finmas.utils.common import get_text_content_file, get_vector_store_index_dir
-
-if TYPE_CHECKING:
-    from llama_index.core.query_engine import BaseQueryEngine
 
 set_identity("John Doe john.doe@example.com")
 
@@ -118,7 +115,7 @@ def get_sec_query_engine(
     temperature: float | None = None,
     max_tokens: int | None = None,
     similarity_top_k: int | None = None,
-) -> tuple[BaseQueryEngine, IndexCreationMetrics]:
+) -> tuple[Any, IndexCreationMetrics]:
     """
     Create a llama-index query engine that uses a Vector Store Index.
 
@@ -195,6 +192,7 @@ def get_sec_query_engine(
         temperature=temperature,
         max_tokens=max_tokens,
     )
+    from llama_index.core.query_engine import BaseQueryEngine
 
     query_engine: BaseQueryEngine = index.as_query_engine(
         llm=llama_index_llm, similarity_top_k=similarity_top_k
